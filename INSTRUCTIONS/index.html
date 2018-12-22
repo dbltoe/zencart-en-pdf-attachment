@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>PDF Attachment in Product Description 2.0 for Zen Cart 1.5.5</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="content-language" content="de">
+<meta name="description" content="per Admin hochladbares pdf auf der Artikeldetailseite zum Download anbieten für Zen Cart 1.5.5 deutsch">
+<link rel="stylesheet" type="text/css" href="includes/css/stylesheet.css">  
+<script type="text/javascript" src="includes/jscript/jscript_tabs.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<h1>PDF Attachment in Product Description 2.0 for Zen Cart 1.5.5</h1>
+</div>
+
+<div id="slidetabsmenu" style="display: none;">
+<ul>
+  <li> <a onClick="expandcontent('sc1', this)" href="javascript:void(0)"><span>Purpose & Aim</span></a></li>
+  <li> <a onClick="expandcontent('sc2', this)" href="javascript:void(0)"><span>Installation</span></a></li>
+ 
+   <li> <a onClick="expandcontent('sc4', this)" href="javascript:void(0)"><span>Uninstallation</span></a></li>
+  
+  <li> <a onClick="expandcontent('sc6', this)" href="javascript:void(0)"><span>Donation</span></a></li>
+ </ul>
+</div>
+<br style="clear: both;">
+
+<!--Begin tabcontainer-->
+<div id="tabcontentcontainer">
+
+<!--Begin sc1-->
+<div class="tabcontent" id="sc1" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Purpose & Aim</h2>
+
+
+<p>You will be able to upload a pdf attachment to every product via the normal product editing in your Zen Cart admin panel. This can be useful if you have to show product data sheets or similar pdf documents to your visitors. You can define a description text (multilingual, similar to product names) for the pdf attachment. On the products detail page this text will show up below the product description (or whereever you want it) with a pdf icon linking to the pdf download file.<br>
+<br>
+Backend:<br>
+<br>
+<img src="images/backend.jpg" width="950" height="588"  alt=""/></p>
+<p>Frontend:</p>
+<p><img src="images/frontend.jpg" width="950" height="934"  alt=""/></p>
+<h3>Copyright,  License</h3>
+<p>Copyright Version 2.0 for Zen Cart 1.5.5h<br>
+(c) 2017 webchills (<a href="http://www.webchills.com" target="_blank">www.webchills.com</a>)</p>
+<p>Credits: Andrea Giovanelli (andreagiov) for the first version 1.0<br>
+  <br>
+  Changelog Version 2.0:<br>
+  rewritten for Zen Cart 1.5.5<br>
+  added ability to define multilingual descriptions for the pdf files
+</p>
+<p> Portions Copyright (c) 2003 osCommerce<br>
+  Portions Copyright     (c) 2003-2017 Zen Cart</p>
+<p>This contribution is subject to version 2.0 of the GPL license available through the world-wide-web at the following url:<br>
+  <a href="http://www.zen-cart.com/license/2_0.txt">http://www.zen-cart.com/license/2_0.txt</a></p>
+</div>
+</div>
+</div>
+<!--End sc1-->
+
+<!--Begin sc2-->
+<div class="tabcontent" id="sc2" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Installation</h2>
+
+  <br>
+  <p>This plugin is<strong> for Zen Cart 1.5.5 only</strong>
+  <br>
+  </p>
+  
+  
+<div id="warning"><b>IMPORTANT</b><br>
+Before you begin:<br>
+Make a BACKUP of store files and database! <br>
+No warranty!<br>
+BACKUP made? Ok, then continue...
+</div>
+<p>Follow these steps carefully:</p>
+<p>1)<br>
+Open the install.sql in the folder SQL with a text editor and copy the content. In your Zen Cart admin panel go to Tools &gt; Install SQL Patches   and paste it in. Send.<br> 
+This creates the needed database changes.
+</p>
+<p>2)<br>
+  Download the following file from your Zen Cart installation:<br>
+  includes/configure.php<br>
+  <br>
+  Open it with a text editor and add the following entry (e.g after define('DIR_FS_CATALOG', '/abcd/');)
+</p>
+<p>define('DIR_WS_PDF_ATTACHMENTS', 'pdf-attachments/');</p>
+<p>Now upload the changed includes/configure.php again. Note that this file is normally not writeable, so you will have to change the file permissions to chmod 777 before you upload.<br>
+  After uploading change it back to chmod 444</p>
+<p>3)<br>
+  Download the following file from your Zen Cart installation:<br>
+YOURADMIN/includes/configure.php<br>
+YOURADMIN is the name of your admin directory in Zen Cart
+<br>
+<br>
+Open it with a text editor and add the following entry (e.g. after define('DIR_FS_CATALOG', '/abcd/');) </p>
+<p>define('DIR_FS_CATALOG_PDF_ATTACHMENTS', DIR_FS_CATALOG . 'pdf-attachments/');</p>
+<p>Now upload the changed YOURADMIN/includes/configure.php again. Note that this file is normally not writeable, so you will have to change the file permissions to chmod 777 before you upload.<br>
+After uploading change it back to chmod 444</p>
+<p>4) <br>
+  Im the folder NEW FILES rename the folder YOURADMIN to the name of your admin directory.<br>
+  Then upload the folders/files, no existing files will be overwritten.<br>
+  Change the permissions of the folder pdf-attachments to chmod 777 as it needs to be writeable to store the pdf files later.</p>
+<p>5)<br>
+  In the folder CHANGED FILES rename the folder YOURTEMPLATE to the name of your active store template. If you are using the responsive_classic template use the folder YOURTEMPLATE_RESPONSIVE.<br>
+  Rename the folder YOURADMIN to the real name of your admin directory.
+  <br>
+  Now do a file comparison (I recommend <a href="http://www.scootersoftware.com">BeyondCompare</a>) between the changed files in this download and the files on your server. And merge the changes carefully.</p>
+<p>6)<br>
+  When editing a product you will now have a new option to upload a pdf file for a product. And you can define a description which will be shown later on the product details page for the pdf attachment.<br>
+  Working with these pdf attachments is similar to uploading a product image, it should be self explanatory.
+</p>
+<p>Similar to product images in the folder images you can work with subfolders if you wish.<br>
+  Create subfolders in the pdf-attachments folder (they will need chmod 777 as well). As soon as there are subfolders they will be selectable in the &quot;Upload to directory&quot; dropdown
+</p>
+<p>  In Catalog &gt; Product Types &gt; Product General &gt; Layout Settings you can deactivate that the pdfs are shown on the product detail page (e.g. during your testings).
+<br>
+  <br>
+</p>
+
+  </div>
+</div>
+</div>
+
+<!--End sc2-->
+
+
+
+<!--Begin sc4-->
+<div class="tabcontent" id="sc4" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>UNINSTALLATION</h2>
+<p>1.<br> 
+Use the uninstall.sql in the SQL folder to remove the database changes via Tools &gt; Install SQL Patches
+</p>
+<p>2.<br>
+  Delete all new files created by ths plugin from your server.<br>
+  Replace all files changed by this plugin with the original files or the files of your backup you made before.</p>
+</div>
+</div>
+</div>
+<!--End sc4-->
+
+
+
+<!--Begin sc6-->
+<div class="tabcontent" id="sc6" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h2>Donation</h2>
+<p>Like this plugin? It is useful for you?</p>
+<p>Buy me a cup of coffee here:</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+</form>
+<br/><br/>
+</div>
+</div>
+</div>
+<!--End sc6-->
+</div>
+<div id="footer">
+Plugin by <a href="http://www.webchills.com" target="_blank">webchills</a>
+</div>
+</div>
+<!--end tabcontainer-->
+<script type="text/javascript">document.getElementById('sc1').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc2').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc4').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc5').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc6').style.display = 'none';</script>
+<script type="text/javascript">ShowTabs()</script>
+<script type="text/javascript">
+// We only show the tab links if JavaScript is available/active.
+<!--
+if (document.getElementById("slidetabsmenu") != null) {
+  document.getElementById('slidetabsmenu').style.display = "block";
+}
+//-->
+</script>
+
+</body></html>
